@@ -2,26 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using Foundation;
-using UIKit;
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
 
-namespace TacoDemoMobile.iOS
+using Xamarin.Forms;
+
+namespace HttpClientDemo.iOS
 {
 	[Register ("AppDelegate")]
-	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
+	public partial class AppDelegate : UIApplicationDelegate
 	{
+		UIWindow window;
+
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-			global::Xamarin.Forms.Forms.Init ();
+			Forms.Init ();
 
-			// Code for starting up the Xamarin Test Cloud Agent
-			#if ENABLE_TEST_CLOUD
-			Xamarin.Calabash.Start();
-			#endif
-
-			LoadApplication (new App ());
-
-			return base.FinishedLaunching (app, options);
+			window = new UIWindow (UIScreen.MainScreen.Bounds);
+			
+			window.RootViewController = App.GetMainPage ().CreateViewController ();
+			window.MakeKeyAndVisible ();
+			
+			return true;
 		}
 	}
 }

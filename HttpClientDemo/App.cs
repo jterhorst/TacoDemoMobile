@@ -7,7 +7,10 @@ namespace HttpClientDemo
 	{
 		public static Page GetMainPage ()
 		{	
-			return new TacosPage ();
+			NavigationPage navigation = new NavigationPage ();
+			TacosPage tacopage = new TacosPage ();
+			tacopage.parentNavigation = navigation;
+			return navigation;
 		}
 	}
 }

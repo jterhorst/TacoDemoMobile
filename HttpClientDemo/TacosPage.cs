@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Xamarin.Forms;
 using System.Diagnostics;
 
@@ -7,12 +7,12 @@ namespace HttpClientDemo
 
 	public class TacosPage : ContentPage
 	{
+		public NavigationPage parentNavigation;
 		ListView lv;
-		Label l;
 
 		public TacosPage ()
 		{
-			l = new Label { Text = "Tacos", Font = Font.BoldSystemFontOfSize(NamedSize.Large) };
+			this.Title = "Tacos";
 
 			var b = new Button { Text = "Get Tacos" };
 			b.Clicked += async (sender, e) => {
@@ -20,7 +20,7 @@ namespace HttpClientDemo
 				var es = await sv.GetTacosAsync();
 				Xamarin.Forms.Device.BeginInvokeOnMainThread( () => {
 					Debug.WriteLine("found " + es.Length + " tacos");
-					l.Text = es.Length + " tacos";
+					this.Title = es.Length + " tacos";
 					lv.ItemsSource = es;
 				});
 			};
@@ -36,7 +36,6 @@ namespace HttpClientDemo
 			Content = new StackLayout {
 				Padding = new Thickness (0, 20, 0, 0),
 				Children = {
-					l,
 					b,
 					lv
 				}

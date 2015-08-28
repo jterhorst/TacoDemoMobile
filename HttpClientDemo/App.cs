@@ -7,9 +7,9 @@ namespace HttpClientDemo
 	{
 		public static Page GetMainPage ()
 		{	
-			NavigationPage navigation = new NavigationPage ();
 			TacosPage tacopage = new TacosPage ();
-			tacopage.parentNavigation = navigation;
+			NavigationPage navigation = new NavigationPage (tacopage);
+
 			return navigation;
 		}
 	}

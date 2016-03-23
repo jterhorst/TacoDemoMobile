@@ -17,7 +17,7 @@ namespace HttpClientDemo
 
 			var client = new System.Net.Http.HttpClient ();
 
-			client.BaseAddress = new Uri("http://xamarin-taco-demo.herokuapp.com/");
+			client.BaseAddress = new Uri("http://tacodemo.herokuapp.com/");
 
 			var response = await client.GetAsync("tacos.json");
 

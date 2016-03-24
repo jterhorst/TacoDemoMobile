@@ -3,7 +3,7 @@ using System.Net;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 
-namespace HttpClientDemo
+namespace TacoDemo
 {
 	// http://bertt.wordpress.com/2013/03/19/using-geonames-webservices-from-portable-class-library-pcl/
 

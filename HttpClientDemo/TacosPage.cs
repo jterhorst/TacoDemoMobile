@@ -2,13 +2,13 @@ using System;
 using Xamarin.Forms;
 using System.Diagnostics;
 
-namespace HttpClientDemo
+namespace TacoDemo
 {
 
 	public class TacosPage : ContentPage
 	{
 		public NavigationPage parentNavigation;
-		ListView lv;
+		public ListView listView = new ListView();
 
 		public TacosPage ()
 		{
@@ -20,15 +20,14 @@ namespace HttpClientDemo
 			this.Title = "Tacos";
 			this.ToolbarItems.Add (refreshItem);
 
-			lv = new ListView ();
-			lv.ItemTemplate = new DataTemplate(typeof(TextCell));
-			lv.ItemTemplate.SetBinding(TextCell.TextProperty, "name");
+			listView = new ListView ();
+			listView.ItemTemplate = new DataTemplate(typeof(TextCell));
+			listView.ItemTemplate.SetBinding(TextCell.TextProperty, "name");
 			RefreshTacos ();
 
 			Content = new StackLayout {
-				Padding = new Thickness (0, 20, 0, 0),
 				Children = {
-					lv
+					listView
 				}
 			};
 
@@ -39,17 +38,7 @@ namespace HttpClientDemo
 		{
 			Debug.WriteLine("found " + tacos.Length + " tacos");
 			this.Title = tacos.Length + " tacos";
-			lv.ItemsSource = tacos;
-
-			lv.ItemSelected += (sender, e) => {
-				if (lv.SelectedItem == null)
-					return;
-				var eq = (Taco)e.SelectedItem;
-//				DisplayAlert("Taco info", eq.ToString(), "OK", null);
-				var detailPage = new TacoDetailPage(eq);
-				Navigation.PushAsync(detailPage);
-				lv.SelectedItem = null;
-			};
+			listView.ItemsSource = tacos;
 		}
 
 		private async void RefreshTacos()

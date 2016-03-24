@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HttpClientDemo
+namespace TacoDemo
 {
 	public class Taco
 	{

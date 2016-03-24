@@ -11,7 +11,7 @@ using Xamarin.Forms.Platform.Android;
 using Android.Content.PM;
 
 
-namespace HttpClientDemo.Android
+namespace TacoDemo.Android
 {
 	[Activity (Label = "HttpClient.Android.Android",
 		MainLauncher = true, 

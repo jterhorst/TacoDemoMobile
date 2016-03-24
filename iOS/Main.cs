@@ -5,7 +5,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace HttpClientDemo.iOS
+namespace TacoDemo.iOS
 {
 	public class Application
 	{

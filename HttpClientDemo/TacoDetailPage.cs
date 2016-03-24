@@ -2,7 +2,7 @@
 
 using Xamarin.Forms;
 
-namespace HttpClientDemo
+namespace TacoDemo
 {
 	public class TacoDetailPage : ContentPage
 	{
@@ -12,6 +12,7 @@ namespace HttpClientDemo
 		{
 			taco = t;
 
+			Title = taco.name;
 			Content = new StackLayout { 
 				Children = {
 					new Label { Text = String.Format("Name: {0}", taco.name) },
